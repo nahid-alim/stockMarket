@@ -4,10 +4,10 @@ This project provides an API which can be used to get a collection of records fr
 Prerequisites:
 - To run this project you will need `Java`, `Maven` and `PostgreSQL` installed on your system.
 
-Important Notes:
+##Important Notes:
 - In order to avoid duplication of records in the database, `id`(also primary key) of each record is the `hash(SHA256)` value of other record's attributes.
 
-Used Technologies and Open-source libraries:
+##Used Technologies and Open-source libraries:
  - Spring Boot
  - Spring DATA JPA
  - Spring WEB
@@ -18,10 +18,10 @@ Used Technologies and Open-source libraries:
  - JUnit
  - Lombok
 
-External Tools:
+##External Tools:
 - Postman
 
-###Getting Started:
+##Getting Started:
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 - You need to have PostgreSQL installed and running on your machine to run the application.
 - You need to add your PostgreSQL username and password in the application.properties file on src/main/resource. 
@@ -70,11 +70,11 @@ You can test the API using `Postman`. The API provides three operations:
     - Fetching records based on a stock symbol<br />
     To do so, create a `Get` request with URL `http://localhost:8080/v1/stocks/searches/symbol/{stock symbol}`
     
-### Documentation:
+## Documentation:
 After running the application, you can access the link below for the documentation and testing:<br />
      `http://localhost:8080/swagger-ui.html`
 
-### Future Improvements:
+## Future Improvements:
     - Adding more test cases. Right now there exist only happy path test cases, but more tests on not OK situations should be added.
     - Creating maven profiles (dev, test). In current test cases, the URL is fixed. However, it should be configurable based on the maven profile.
     - Adding Spring HATEOAS to project in order for clients to not hardcode the API URIs.
