@@ -1,13 +1,13 @@
 # Stock Market Records
 This project provides an API which can be used to get a collection of records from the `Dow Jones Index` from 2011.
 
-###Prerequisites:
+Prerequisites:
 - To run this project you will need `Java`, `Maven` and `PostgreSQL` installed on your system.
 
-###Important Notes:
+Important Notes:
 - In order to avoid duplication of records in the database, `id`(also primary key) of each record is the `hash(SHA256)` value of other record's attributes.
 
-###Used Technologies and Open-source libraries:
+Used Technologies and Open-source libraries:
  - Spring Boot
  - Spring DATA JPA
  - Spring WEB
@@ -18,7 +18,7 @@ This project provides an API which can be used to get a collection of records fr
  - JUnit
  - Lombok
 
-###External Tools:
+External Tools:
 - Postman
 
 ###Getting Started:
