@@ -29,7 +29,7 @@ The lines that must be modified are as follows:
     - spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
     - spring.datasource.username=postgres
     - spring.datasource.password=password
-- Now you can run the application with an IDE:
+- You can run the application with an IDE:
     - Download the zip or clone the Git repository.
     - Unzip the zip file (if you downloaded one)
     - Open Eclipse IDE
@@ -39,40 +39,40 @@ The lines that must be modified are as follows:
     - Right Click on the file and Run as Java Application
     
 - Testing API:
-    You can test the API using Postman.
+    - You can test the API using Postman.<br />
     The API provides three operations:
     
-    - Uploading a file which includes stock records:
-    To do so, create a Post request with URL http://localhost:8080/v1/stocks/upload/csv
+    - Uploading a file which includes stock records:<br />
+    To do so, create a Post request with URL http://localhost:8080/v1/stocks/upload/csv <br />
     select 'Body' -> select 'form-data' -> KEY value is 'file' and then choose the file to upload
     
-    - Creating a new stock record
-    To do so, create a Post request with URL http://localhost:8080/v1/stocks/ and provide the JSON information needed to post the request
-    As an example:
-    {
-        "quarter": 1,
-        "stockSymbol": "DD",
-        "date": "1/1/2021",
-        "openPrice" : "$12.2",
-        "highPrice" : "$12.2",
-        "lowPrice" : "$12.2",
-        "closePrice" : "$12.2",
-        "volume" : 12345,
-        "percentChangePrice" : 3,
-        "percentChangeVolumeOverLastWeek" : 3,
-        "previousWeeksVolume" : 123456,
-        "nextWeeksOpenPrice" : "$12.2",
-        "nextWeeksClosePrice" : "$12.2",
-        "percentChangeNextWeeksPrice" : 3,
-        "daysToNextDividend" : 22,
-        "percentReturnNextDividend" : 20
+    - Creating a new stock record <br />
+    To do so, create a Post request with URL http://localhost:8080/v1/stocks/ and provide the JSON information needed to post the request <br />
+    As an example:<br />
+    {<br />
+        "quarter": 1,<br />
+        "stockSymbol": "DD",<br />
+        "date": "1/1/2021",<br />
+        "openPrice" : "$12.2",<br />
+        "highPrice" : "$12.2",<br />
+        "lowPrice" : "$12.2",<br />
+        "closePrice" : "$12.2",<br />
+        "volume" : 12345,<br />
+        "percentChangePrice" : 3,<br />
+        "percentChangeVolumeOverLastWeek" : 3,<br />
+        "previousWeeksVolume" : 123456,<br />
+        "nextWeeksOpenPrice" : "$12.2",<br />
+        "nextWeeksClosePrice" : "$12.2",<br />
+        "percentChangeNextWeeksPrice" : 3,<br />
+        "daysToNextDividend" : 22,<br />
+        "percentReturnNextDividend" : 20<br />
     }
     
-    - Fetching records based on a stock symbol
+    - Fetching records based on a stock symbol<br />
     To do so, create a Get request with URL http://localhost:8080/v1/stocks/searches/symbol/{stock symbol}
     
-- Documentation:
-    After running the application, you can access the link below for the documentation and testing:
+- Documentation:<br />
+    After running the application, you can access the link below for the documentation and testing:<br />
     - http://localhost:8080/swagger-ui.html
 
 - Future Improvements:
