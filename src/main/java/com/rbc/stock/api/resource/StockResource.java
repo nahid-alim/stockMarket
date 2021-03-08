@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.util.List;
 
 @RestController
@@ -47,7 +48,7 @@ public class StockResource {
 
     @ApiOperation(value = "Upload a CSV file of stock records", response = ResponseEntity.class)
     @PostMapping("/upload/csv")
-    public ResponseEntity uploadCSV(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<Object> uploadCSV(@RequestParam("file") MultipartFile file) {
 
         logger.info("uploadCSV method is called.");
         try {
@@ -55,17 +56,17 @@ public class StockResource {
             stockService.createStocksList(records);
             logger.info("The file is uploaded successfully. Number of uploaded records: " + records.size());
             return ResponseEntity.ok("The file is uploaded successfully. Number of uploaded records: " + records.size());
-        } catch(FileTooBig ftb){
+        } catch (FileTooBig ftb) {
             return ResponseEntity
                     .status(HttpStatus.PAYLOAD_TOO_LARGE)
                     .body(Problem.create()
                             .withDetail(ftb.getMessage()));
-        } catch(FileEmpty fe){
+        } catch (FileEmpty fe) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(Problem.create()
                             .withDetail(fe.getMessage()));
-        } catch(FileInWrongFormat rf){
+        } catch (FileInWrongFormat rf) {
             return ResponseEntity
                     .status(HttpStatus.NOT_ACCEPTABLE)
                     .body(Problem.create()
@@ -82,7 +83,7 @@ public class StockResource {
             List<StockDTO> records = stockService.getStocksBySymbol(stockSymbol);
             logger.info("Number of records found with stock symbol '" + stockSymbol + "' is: " + records.size());
             return ResponseEntity.ok(records);
-        } catch (StockNotFound snf){
+        } catch (StockNotFound snf) {
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
                     .body(Problem.create()
